@@ -1,0 +1,21 @@
+<div class="pixel-card">
+  <h1 class="glitch"><%= @task.title.upcase %></h1>
+
+  <p class="terminal-type"> DETAILS: <%= @task.details %></p>
+
+  <p class="terminal-type">
+    STATUS:
+    <% if @task.completed %>
+      ✅ COMPLETED
+    <% else %>
+      ⏳ IN PROGRESS
+    <% end %>
+  </p>
+
+<div class="mt-4">
+    <%= link_to '⬅ BACK TO TASKS', tasks_path, class: "cyber-btn me-3" %>
+    <%= link_to '🗑 DELETE', task_path(@task),
+      data: { turbo_method: :delete, turbo_confirm: "Delete this task forever?" },
+      class: "cyber-btn" %>
+  </div>
+</div>

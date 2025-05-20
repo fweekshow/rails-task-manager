@@ -1,0 +1,19 @@
+<div class="pixel-card">
+  <h1 class="glitch">TASK LOG_01</h1>
+  <%= link_to "New Task", new_task_path %>
+  <p class="terminal-type">> INITIATE TASK PROTOCOL
+  <ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <strong><%= link_to task.title, task_path(task) %></strong>
+      <em><%= task.details %></em><br>
+      <% if task.completed %>
+        <span>Completed</span>
+      <% else %>
+        <span>In progress</span>
+      <% end %>
+      <%= link_to "Edit", edit_task_path(task) %>
+    </li>
+  <% end %>
+</ul></p>
+</div>
